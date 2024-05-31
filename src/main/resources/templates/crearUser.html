@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap CSS desde CDN -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+	<!-- íconos Bootstrap 5 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+	<title>Login Admin</title>
+</head>
+
+<style>
+        .custom-background {
+            background-color: green;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        
+
+        .center-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .form-container {
+            max-height: 600px;
+            overflow-x: auto;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+
+<body class="custom-background" style="padding: 20px">
+	<div class="card center-card">
+		
+		<div class="card-body">
+			<h3><center>Registro de estudiante </center></h3>
+			<hr/>
+
+	
+			<div class="card-body form-container">
+				<form action="/administrador/save" th:object="${user}" method="post">
+					<input type="hidden" th:field="*{id}">
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Tipo de Documento</label>
+								<input type="text" name="tipoDocumento" class="form-control" th:field="*{tipoDocumento}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Número de Documento</label>
+								<input type="number" name="numDocumento" class="form-control" th:field="*{numDocumento}">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Nombre completo</label>
+								<input type="text" name="fullname" class="form-control" th:field="*{fullname}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Correo</label>
+								<input type="email" name="email" class="form-control" th:field="*{email}">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Contraseña</label>
+								<input type="text" name="password" class="form-control" th:field="*{password}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Número de Teléfono</label>
+								<input type="number" name="numTelefono" class="form-control" th:field="*{numTelefono}">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Número de registro</label>
+								<input type="text" name="numRegister" class="form-control" th:field="*{numRegister}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Puntaje Global</label>
+								<input type="number" name="PuntajeGlobal" class="form-control" th:field="*{PuntajeGlobal}">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Saber Pro Puntaje nivel</label>
+								<input type="text" name="puntajeNivelGlobal" class="form-control" th:field="*{puntajeNivelGlobal}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Comunicación Escrita</label>
+								<input type="number" name="comunicacionEscrita" class="form-control" th:field="*{comunicacionEscrita}">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Comunicación Escrita nivel</label>
+								<input type="text" name="comunicacionEscritaNivel" class="form-control" th:field="*{comunicacionEscritaNivel}">
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Razonamiento Cuantitativo</label>
+								<input type="number" name="razonamientoCuantitativo" class="form-control" th:field="*{razonamientoCuantitativo}">
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Razonamiento Cuantitativo Nivel</label>
+								<input type="text" name="razonamientoCuantitativoNivel" class="form-control" th:field="*{razonamientoCuantitativoNivel}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Lectura crítica</label>
+								<input type="number" name="lecturaCritica" class="form-control" th:field="*{lecturaCritica}">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Lectura crítica Nivel</label>
+								<input type="text" name="lecturaCriticaNivel" class="form-control" th:field="*{lecturaCriticaNivel}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Competencias Ciudadanas</label>
+								<input type="number" name="competenciasCiudadanas" class="form-control" th:field="*{competenciasCiudadanas}">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Competencias Ciudadanas nivel</label>
+								<input type="text" name="competenciasCiudadanasNivel" class="form-control" th:field="*{competenciasCiudadanasNivel}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Inglés</label>
+								<input type="number" name="ingles" class="form-control" th:field="*{ingles}">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Inglés nivel</label>
+								<input type="text" name="inglesNivel" class="form-control" th:field="*{inglesNivel}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Formulación de proyectos de Ingeniería </label>
+								<input type="number" name="proyectosIngenieria" class="form-control" th:field="*{proyectosIngenieria}">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Formulación de proyectos de Ingeniería Nivel</label>
+								<input type="text" name="proyectosIngenieriaNivel" class="form-control" th:field="*{proyectosIngenieriaNivel}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Pensamiento Científico - Matemáticas y estadística </label>
+								<input type="number" name="pensamientoMatematico" class="form-control" th:field="*{pensamientoMatematico}">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Pensamiento Científico - Matemáticas y estadística Nivel</label>
+								<input type="text" name="pensamientoMatematicoNivel" class="form-control" th:field="*{pensamientoMatematicoNivel}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label> Diseño de Software </label>
+								<input type="number" name="disenhoSoftware" class="form-control" th:field="*{disenhoSoftware}">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label>Diseño de Software Nivel</label>
+								<input type="text" name="disenhoSoftwareNivel" class="form-control" th:field="*{disenhoSoftwareNivel}">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="mb-3">
+								<label> Nivel de inglés </label>
+								<input type="text" name="nivelDeIngles" class="form-control" th:field="*{nivelDeIngles}">
+							</div>
+						</div>
+						<hr/>
+						<div class="d-flex justify-content-center gap-2">
+							<a  href="/administrador/" class="btn btn-custom btn-danger text-light btn-lg"><i class="bi bi-box-arrow-left"></i>Salir</a>
+							
+					<button  class="btn btn-custom btn-success btn-lg">
+						<i class="bi bi-cloud-download"></i> Guardar
+					 </button>
+
+                    
+                </div>
+					
+							
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- ====================================================================================================== -->
+	<!-- Scripts de Bootstrap y otros scripts personalizados -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLR4g5g6j5q72ovIL5uy4ve5g7F5w5F5F5F5F5F5F5"
+		crossorigin="anonymous"></script>
+
+	<!-- Popper.js desde CDN (necesario para Bootstrap) -->
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@2.10.2/dist/umd/popper.min.js"></script>
+
+	<!-- Bootstrap JS desde CDN -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
