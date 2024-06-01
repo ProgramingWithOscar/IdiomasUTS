@@ -83,10 +83,13 @@ public class Student {
     }
 
     public String getNote1() {
-        return note1;
+    	double nota = Double.parseDouble(note1);
+    	nota = Math.round(nota * 100) /100;
+        return String.valueOf(nota);
     }
 
     public void setNote1(String note1) {
+    	
         this.note1 = note1;
     }
 
@@ -99,15 +102,19 @@ public class Student {
     }
 
     public String getNote3() {
-        return note3;
+    	double nota = Double.parseDouble(note1);
+    	nota = Math.round(nota * 100) /100;
+        return String.valueOf(nota);
     }
 
     public void setNote3(String note3) {
         this.note3 = note3;
     }
 
-    public String getFinalGrade() {  // Corregido el typo de "finalGrande" a "finalGrade"
-        return finalGrade;
+    public String getFinalGrade() { 
+    	double nota = Double.parseDouble(note1);
+    	nota = Math.round(nota * 100) /100;
+        return String.valueOf(nota);
     }
 
     public void setFinalGrade(String finalGrade) {  // Corregido el typo de "finalGrande" a "finalGrade"
