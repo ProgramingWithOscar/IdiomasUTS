@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student List</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="https://www.uts.edu.co/sitio/wp-content/uploads/2019/10/acreditacio%CC%81n-2-300x298.png">
+    
 </head>
 <body class="bg-gray-100 p-4 flex flex-col items-center">
     <div class="w-full max-w-screen-md mb-8">
@@ -13,6 +15,10 @@
                 <a href="/index">Back</a>
             </button>
             <input type="text" placeholder="Search by ID Student" id="searchInput" class="px-4 py-2 border border-gray-300 rounded-md">
+            <select id="groupFilter" class="px-4 py-2 border border-gray-300 rounded-md">
+                <option value="">All Groups</option>
+                <option th:each="group : ${groups}" th:value="${group.groupName}" th:text="${group.groupName}"></option>
+            </select>
         </div>
     </div>
     <div class="w-full max-w-screen">
@@ -46,7 +52,7 @@
                         <td class="py-2 px-4 border-b border-gray-300 text-left" th:text="${student.finalGrade}"></td>
                         <td class="py-2 px-4 border-b border-gray-300 text-left" th:text="${student.remarks}"></td>
                         <td class="py-2 px-4 border-b border-gray-300 text-left" th:text="${student.group}"></td>
-                                               <td class="py-2 px-4 border-b border-gray-300 text-left" th:text="${student.professor}"></td>
+                        <td class="py-2 px-4 border-b border-gray-300 text-left" th:text="${student.professor}"></td>
                     </tr>
                 </tbody>
             </table>
@@ -56,19 +62,33 @@
         document.getElementById('searchInput').addEventListener('input', function() {
             var filter = this.value.toUpperCase();
             var rows = document.getElementById("studentTableBody").getElementsByTagName("tr");
-                    for (var i = 0; i < rows.length; i++) {
-                        var idColumn = rows[i].getElementsByTagName("td")[1]; // Assuming ID Student is the second column
-                        if (idColumn) {
-                            var idText = idColumn.textContent || idColumn.innerText;
-                            if (idText.toUpperCase().indexOf(filter) > -1) {
-                                rows[i].style.display = "";
-                            } else {
-                                rows[i].style.display = "none";
-                            }
-                        }
+            for (var i = 0; i < rows.length; i++) {
+                var idColumn = rows[i].getElementsByTagName("td")[1]; // Assuming ID Student is the second column
+                if (idColumn) {
+                    var idText = idColumn.textContent || idColumn.innerText;
+                    if (idText.toUpperCase().indexOf(filter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
                     }
-                });
-            </script>
-        </body>
-        </html>
-                    
+                }
+            }
+        });
+
+        document.getElementById('groupFilter').addEventListener('change', function() {
+            var selectedGroupId = this.value;
+            var rows = document.getElementById("studentTableBody").getElementsByTagName("tr");
+            for (var i = 0; i < rows.length; i++) {
+                var groupColumn = rows[i].getElementsByTagName("td")[9]; // Assuming Group column is the 10th column
+                if (groupColumn) {
+                    if (selectedGroupId === "" || groupColumn.textContent.trim() === selectedGroupId) {
+                        rows[i].style.display = "";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

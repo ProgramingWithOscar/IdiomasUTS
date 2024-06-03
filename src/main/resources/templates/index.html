@@ -7,34 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://www.uts.edu.co/sitio/wp-content/uploads/2019/10/acreditacio%CC%81n-2-300x298.png">
     <style>
-    .index {
-    background-image: url("https://img.freepik.com/vector-gratis/gente-hablando-distintos-idiomas-estilo-dibujo-mano_23-2147860193.jpg");
-    }
+        .index {
+            background-image: url("https://img.freepik.com/free-vector/people-speaking-different-languages-hand-drawn-style_23-2147860193.jpg");
+        }
     </style>
 </head>
 
 <body class="bg-gray-100 h-screen flex flex-col justify-center items-center index">
     <div class="max-w-md mx-auto bg-white p-8 rounded shadow-lg">
-        <h1 class="text-2xl font-bold mb-4">Menú Administrativo</h1>
-        <div class="grid grid-cols-1 gap-4">
-            <a th:href="@{/home}"
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Subir
-                Excel</a>
-            <a th:href="@{/students}"
-                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Tabla
-                de Estudiantes</a>
-                
-            <a th:href="@{/grupos}"
-                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Grupos</a>
-                
-                <a th:href="@{/students}"
-                class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Profesores</a>
+        <div class="w-20 flex justify-center mx-auto">
+            <img alt="" src="https://www.uts.edu.co/sitio/wp-content/uploads/2022/07/acreditacio%CC%81n-1-1024x1017.jpg">
+        </div>
+
+        <h1 class="text-2xl font-bold mb-4">Administrative Menu</h1>
+        <div class="grid grid-cols-2 gap-4">
+            <a th:href="@{/home}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Upload Excel</a>
+            <a th:href="@{/students}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Students Table</a>
+            <a th:href="@{/grupos}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Create Group</a>
+            <a th:href="@{/gruposList}" class="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">List Groups</a>
+            <a th:href="@{/createProfessor}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Create Professors</a>
+             <a th:href="@{/asignarGrupo}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">Assigned Group</a>
+            
+            <a th:href="@{/professors}" class="bg-yellow-700 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline text-center">List Professors</a>
         </div>
     </div>
-    
-    <a th:href="@{/login}"
-                class=" mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Logout</a>
+
+    <a th:href="@{/login}" class="mt-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Logout</a>
 </body>
 
 </html>

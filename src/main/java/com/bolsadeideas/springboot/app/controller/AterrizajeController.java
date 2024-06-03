@@ -22,7 +22,7 @@ public class AterrizajeController {
 
 	@GetMapping("/")
 	public String index(Model model) {
-		return "loginUA";
+		return "idiomasuts";
 	}
 	
 	@GetMapping("/login")

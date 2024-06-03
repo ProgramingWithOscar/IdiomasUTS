@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Professor</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="https://www.uts.edu.co/sitio/wp-content/uploads/2019/10/acreditacio%CC%81n-2-300x298.png">
+    
+</head>
+<body class="bg-gray-100 p-6">
+    <h1 class="text-2xl font-bold mb-4">Edit Professor</h1>
+    <form action="/editProfessor" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <input type="hidden" name="id" th:value="${professor.id}"/>
+        
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name:</label>
+            <input id="name" name="name" type="text" th:value="${professor.name}" class="w-full px-3 py-2 border rounded shadow appearance-none"/>
+        </div>
+        
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
+            <input id="email" name="email" type="email" th:value="${professor.email}" class="w-full px-3 py-2 border rounded shadow appearance-none"/>
+        </div>
+        
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Select groups:</label>
+            <th:block th:each="group : ${groups}">
+                <label class="inline-flex items-center">
+                    <input type="checkbox" name="groups" th:value="${group.id}" th:checked="${professor.groupNames.contains(group.groupName)}" class="form-checkbox h-5 w-5 text-blue-600"/>
+                    <span class="ml-2" th:text="${group.groupName}"></span>
+                </label>
+            </th:block>
+        </div>
+        
+        <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Edit Professor
+            </button>
+              <button class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">
+                <a href="/professors">Back</a>
+            </button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,8 +1,9 @@
+// GroupRepository.java
 package com.bolsadeideas.springboot.app.repository;
 
+import com.bolsadeideas.springboot.app.entity.Group;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.bolsadeideas.springboot.app.entity.Group;
-
-public interface GroupRepository extends MongoRepository<Group, Long> {
+public interface GroupRepository extends MongoRepository<Group, String> {
+    Group findByGroupName(String groupName);
 }

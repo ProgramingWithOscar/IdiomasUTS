@@ -22,12 +22,11 @@ public class StudentService {
     @Autowired
     private ExcelReader excelReader;
 
-    public void saveStudentsFromExcel(InputStream fileInputStream, String group, String professor) throws IOException {
+    public void saveStudentsFromExcel(InputStream fileInputStream, String group) throws IOException {
         List<Student> students = excelReader.readExcel(fileInputStream);
 
         for (Student student : students) {
             student.setGroup(group);
-            student.setProfessor(professor);
             student.setSubgroup(determineSubgroup(student)); // Implementar la lógica para determinar el subgrupo
         }
 

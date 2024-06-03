@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Group</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="https://www.uts.edu.co/sitio/wp-content/uploads/2019/10/acreditacio%CC%81n-2-300x298.png">
+    
 </head>
-<body class="bg-gray-100 p-4 flex justify-center items-center h-screen">
-    <div class="bg-white p-8 rounded-md shadow-md max-w-md">
+<body class="bg-gray-100 p-4 flex justify-center items-center">
+    <div class="bg-white p-8 rounded-md shadow-md w-full max-w-4xl">
         <h1 class="text-2xl font-bold mb-4 text-center">Create Group</h1>
         <form action="/grupos" method="post" enctype="multipart/form-data"> <!-- Specifying the action and method -->
             <div class="mb-4">
@@ -28,6 +30,34 @@
                     <input type="radio" id="presential" name="modality" value="presential" class="form-radio" required>
                     <span class="ml-2">Presential</span>
                 </label>
+            </div>
+            <div class="mb-4">
+                <label for="startDate" class="block text-gray-700 font-bold mb-2">Start Date:</label>
+                <input type="date" id="startDate" name="startDate" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="endDate" class="block text-gray-700 font-bold mb-2">End Date:</label>
+                <input type="date" id="endDate" name="endDate" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="englishLevel" class="block text-gray-700 font-bold mb-2">English Level:</label>
+                <select id="englishLevel" name="englishLevel" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+                    <option value="">Select English level</option>
+                    <option value="A1">A1 - Beginner</option>
+                    <option value="A2">A2 - Elementary</option>
+                    <option value="B1">B1 - Intermediate</option>
+                    <option value="B2">B2 - Upper-Intermediate</option>
+                    <option value="C1">C1 - Advanced</option>
+                    <option value="C2">C2 - Proficient</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="scheduleStart" class="block text-gray-700 font-bold mb-2">Schedule Start Time:</label>
+                <input type="time" id="scheduleStart" name="scheduleStart" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="scheduleEnd" class="block text-gray-700 font-bold mb-2">Schedule End Time:</label>
+                <input type="time" id="scheduleEnd" name="scheduleEnd" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
             </div>
             <div class="flex justify-center">
                 <button type="submit" class="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Create Group</button>

@@ -4,11 +4,22 @@
     <meta charset="UTF-8">
     <title>Excel estudiantes</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="https://www.uts.edu.co/sitio/wp-content/uploads/2019/10/acreditacio%CC%81n-2-300x298.png">
+    
+    <style type="text/css">
+    	.subir {
+    background-image: url("https://www.uts.edu.co/sitio/wp-content/uploads/2020/08/IMG-20200815-WA0004.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+}
+
+    </style>
 </head>
-<body class="flex items-center justify-center min-h-screen bg-gray-100">
+<body class="flex items-center justify-center min-h-screen bg-gray-100 subir">
 	
     <div class="p-6 bg-white rounded shadow-md">
-        <h2 class="mb-4 text-xl font-semibold">Subir documento Excel</h2>
+        <h2 class="mb-4 text-xl font-semibold">Upload Excel document</h2>
         <form class="space-y-4" method="post" enctype="multipart/form-data" action="/import">
             <div>
                 <label class="block mb-2 text-sm font-medium text-gray-700">File</label>
@@ -16,11 +27,9 @@
             </div>
             <div>
                 <label class="block mb-2 text-sm font-medium text-gray-700">Group</label>
-                <input class="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" type="text" name="group" required/>
-            </div>
-            <div>
-                <label class="block mb-2 text-sm font-medium text-gray-700">Teacher</label>
-                <input class="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" type="text" name="professor" required/>
+                <select class="block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" name="group" required>
+                    <option th:each="group : ${groups}" th:value="${group.groupName}" th:text="${group.groupName}"></option>
+                </select>
             </div>
             <div>
                 <button class="w-full px-4 py-2 font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600" type="submit">Upload</button>
