@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assign Group to Teacher</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="https://www.uts.edu.co/sitio/wp-content/uploads/2019/10/acreditacio%CC%81n-2-300x298.png">
+    
+</head>
+<body class="bg-gray-100 p-6">
+    <h1 class="text-2xl font-bold mb-4">Assign Group to Teacherr</h1>
+    <form action="/asignarGrupo" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="professor">Select a teacher:</label>
+            <select id="professor" name="professorId" class="w-full px-3 py-2 border rounded shadow appearance-none" required="required">
+                <option value="" >Select a teacher:</option>
+                <!-- Iterar sobre la lista de profesores y crear opciones -->
+                <th:block th:each="professor : ${professors}">
+                    <option th:value="${professor.id}" th:text="${professor.name}"></option>
+                </th:block>
+            </select>
+        </div>
+        
+  <div class="mb-4" th:if="${groups.isEmpty()}">
+    <p>No groups available</p>
+</div>
+<div class="mb-4" th:unless="${groups.isEmpty()}">
+    <label class="block text-gray-700 text-sm font-bold mb-2">Select groups:</label>
+    <!-- Iterar sobre la lista de grupos y crear checkboxes -->
+    <th:block th:each="group : ${groups}">
+        <label class="inline-flex items-center">
+            <input type="checkbox" name="groupIds" th:value="${group.id}" class="form-checkbox h-5 w-5 text-blue-600" required="required"/>
+            <span class="ml-2" th:text="${group.groupName}"></span>
+        </label>
+    </th:block>
+</div>
+
+        
+        <div class="flex items-center justify-between">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Assign groups
+            </button>
+            
+        </div>
+          <div class="mt-2">
+            <button class="w-30 px-4 py-2 font-semibold text-white bg-green-500 rounded-md hover:bg-green-600">
+                <a href="/index">Back</a>
+            </button>
+        </div>
+    </form>
+</body>
+</html>

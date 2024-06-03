@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Group</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="icon" type="image/png" href="https://www.uts.edu.co/sitio/wp-content/uploads/2019/10/acreditacio%CC%81n-2-300x298.png">
+    
+</head>
+<body class="bg-gray-100 p-4 flex justify-center items-center">
+    <div class="bg-white p-8 rounded-md shadow-md w-full max-w-4xl">
+        <h1 class="text-2xl font-bold mb-4 text-center">Edit Group</h1>
+        <form th:action="@{/grupos/edit/{id}(id=${group.id})}" method="post">
+            <div class="mb-4">
+                <label for="groupName" class="block text-gray-700 font-bold mb-2">Group Name:</label>
+                <input type="text" id="groupName" name="groupName" th:value="${group.groupName}" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="studentCount" class="block text-gray-700 font-bold mb-2">Number of Students:</label>
+                <input type="number" id="studentCount" name="studentCount" th:value="${group.studentCount}" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2">Modality:</label>
+                <label for="virtual" class="inline-flex items-center mr-6">
+                    <input type="radio" id="virtual" name="modality" value="virtual" th:checked="${group.modality == 'virtual'}" class="form-radio" required>
+                    <span class="ml-2">Virtual</span>
+                </label>
+                <label for="presential" class="inline-flex items-center">
+                    <input type="radio" id="presential" name="modality" value="presential" th:checked="${group.modality == 'presential'}" class="form-radio" required>
+                    <span class="ml-2">Presential</span>
+                </label>
+            </div>
+            <div class="mb-4">
+                <label for="startDate" class="block text-gray-700 font-bold mb-2">Start Date:</label>
+                <input type="date" id="startDate" name="startDate" th:value="${group.startDate}" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="endDate" class="block text-gray-700 font-bold mb-2">End Date:</label>
+                <input type="date" id="endDate" name="endDate" th:value="${group.endDate}" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="englishLevel" class="block text-gray-700 font-bold mb-2">English Level:</label>
+                <select id="englishLevel" name="englishLevel" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+                    <option value="A1" th:selected="${group.englishLevel == 'A1'}">A1 - Beginner</option>
+                    <option value="A2" th:selected="${group.englishLevel == 'A2'}">A2 - Elementary</option>
+                    <option value="B1" th:selected="${group.englishLevel == 'B1'}">B1 - Intermediate</option>
+                    <option value="B2" th:selected="${group.englishLevel == 'B2'}">B2 - Upper Intermediate</option>
+                    <option value="C1" th:selected="${group.englishLevel == 'C1'}">C1 - Advanced</option>
+                    <option value="C2" th:selected="${group.englishLevel == 'C2'}">C2 - Proficiency</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="scheduleStart" class="block text-gray-700 font-bold mb-2">Schedule Start:</label>
+                <input type="time" id="scheduleStart" name="scheduleStart" th:value="${group.scheduleStart}" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+            </div>
+            <div class="mb-4">
+                <label for="scheduleEnd" class="block text-gray-700 font-bold mb-2">Schedule End:</label>
+                <input type="time" id="scheduleEnd" name="scheduleEnd" th:value="${group.scheduleEnd}" class="px-4 py-2 border border-gray-300 rounded-md w-full" required>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Update Group</button>
+            </div>
+             <div class="flex justify-center">
+          <button class="mt-2 px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">
+                <a href="/index">Back</a>
+            </button>
+         </div>
+        </form>
+    </div>
+</body>
+</html>
